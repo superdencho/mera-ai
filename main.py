@@ -22,10 +22,7 @@ if not OPENAI_API_KEY or not TELEGRAM_BOT_TOKEN:
         "Необходимо установить ключи OPENAI_API_KEY и TELEGRAM_BOT_TOKEN в .env файле"
     )
 
-# Оборачиваем API-ключ в SecretStr
 openai_api_key = SecretStr(OPENAI_API_KEY)
-
-# Используем OpenAI API (нужно извлечь строковое значение ключа через get_secret_value())
 openai = OpenAI(api_key=openai_api_key.get_secret_value())  # type: ignore
 
 
